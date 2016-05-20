@@ -1,2 +1,2 @@
 # TravelBot
-an intelligent travel guide in your pocket. Based on Microsoft  Bot Framework.
+An intelligent travel guide in your pocket, based on Microsoft Bot Framework.
