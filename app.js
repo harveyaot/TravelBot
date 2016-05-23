@@ -6,15 +6,15 @@ var message = require('botbuilder/lib/Message')
 // handlers
 var sayHello = function (sess){
     var msg = new message.Message()
-                         .setText(sess,"Hello Wei:), I am XiaoBai,"
-                                  + " an professional *travel guide*"
+                         .setText(sess,"Hello Wei =^_^= , I am XiaoBai,"
+                                  + " an professional *travel guide*,"
                                   +  " what can I help you?")
     sess.send(msg)
 }
 
 var sayDefault = function(sess){
     var msg = new message.Message()
-                         .setText(sess, "Please Turn on GPS. Let me show you around ^o^")
+                         .setText(sess, "Please Turn on GPS. Let me show you around ^o^.")
     sess.send(msg)
 }
 
@@ -35,9 +35,9 @@ var overview = function(sess){
                          .addAttachment({
                             actions:[
                                 { title : 'Introduction'},
-                                { title : 'History'},
-                                { title : 'Description'},
-                                { title : 'Images Galary'}
+                                { title : 'History', url : 'https://en.wikipedia.org/wiki/Forbidden_City#History'},
+                                { title : 'Influence', url : 'https://en.wikipedia.org/wiki/Forbidden_City#Influence'},
+                                { title : 'Photos', url: 'https://www.flickr.com/search/?text=forbbiden%20city'}
 
                              ]
                          })
@@ -88,7 +88,7 @@ var quesAnswer = function (key,sess){
                     )
     }
     else if(key == "emperors"){
-        msg.setText(sess, "**Qing emperors** succeeded each other from father to son"
+        msg.setText(sess,"13, **Qing emperors** succeeded each other from father to son"
                     + " until the *Tongzhi* emperor (r. 1861–1874), the *eleventh*"
                     + "  Qing ruler, died childess in 1874. The *last two emperors*"
                     + "  were chosen by Empress Dowager *Cixi* from other branches"
@@ -100,7 +100,7 @@ var quesAnswer = function (key,sess){
 
 var figureAnswer = function(name,sess){
     var msg = new message.Message()
-                         .setText(sess,"**Empress Dowager Cixi**")
+                         .setText(sess,"Empress Dowager Cixi")
                          .addAttachment({
                              contentType : 'image/png',
                              contentUrl : 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/SC-GR-257.jpg/255px-SC-GR-257.jpg'
@@ -128,10 +128,10 @@ bot.configure({
 bot.add('/', function(sess){
     text = sess.message.text
     console.log(sess.message)
-    if (/^ \+(hi|hello)/i.test(text)){
+    if (/^(hi|hello)/i.test(text)){
         sayHello(sess);
     }
-    else if(/in Forbidden City/i.test(text)){
+    else if(/in forbbiden city/i.test(text)){
         overview(sess)
     }
     else if(/introduction/i.test(text)){
