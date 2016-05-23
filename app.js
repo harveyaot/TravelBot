@@ -41,8 +41,7 @@ var overview = function(sess){
                             actions:[
                                 { title : 'Introduction'},
                                 { title : 'History', url : 'https://en.wikipedia.org/wiki/Forbidden_City#History'},
-                                { title : 'Influence', url : 'https://en.wikipedia.org/wiki/Forbidden_City#Influence'},
-                                { title : 'Photos', url: 'https://www.flickr.com/search/?text=forbidden%20city'}
+                                { title : 'Photos', url: 'https://www.flickr.com/groups/forbiddencity/pool/'}
 
                              ]
                          })
@@ -112,9 +111,9 @@ var figureAnswer = function(name,sess){
                          })
                          .addAttachment({
                             actions:[
-                                { title : 'Introduction'},
-                                { title : 'history'},
-                                { title : 'See Wikipedida'}
+                                { title : 'Introduction', url: 'https://en.wikipedia.org/wiki/Empress_Dowager_Cixi'},
+                                { title : 'history', url : 'https://en.wikipedia.org/wiki/Empress_Dowager_Cixi#history'},
+                                { title : 'See Wikipedida', url : 'https://en.wikipedia.org/wiki/Empress_Dowager_Cixi'}
 
                              ]
                          })
