@@ -2,11 +2,10 @@ var restify = require('restify');
 var builder = require('botbuilder');
 var message = require('botbuilder/lib/Message')
 
-
 // handlers
 var sayHello = function (sess){
     var msg = new message.Message()
-                         .setText(sess,"Hello Wei =^_^= , I am XiaoBai,"
+                         .setText(sess,"Hello =^_^= , I am XiaoBai,"
                                   + " an professional *travel guide*,"
                                   +  " what can I help you?")
     sess.send(msg)
@@ -14,7 +13,13 @@ var sayHello = function (sess){
 
 var sayDefault = function(sess){
     var msg = new message.Message()
-                         .setText(sess, "Please Turn on GPS. Let me show you around ^o^.")
+                         .setText(sess, "Please **turn** on GPS. Let me show you around ^o^.")
+    sess.send(msg)
+}
+
+var sayThanks= function(sess){
+    var msg = new message.Message()
+                         .setText(sess, "^_^, You are so welcome, it's my pleasure.")
     sess.send(msg)
 }
 
@@ -37,7 +42,7 @@ var overview = function(sess){
                                 { title : 'Introduction'},
                                 { title : 'History', url : 'https://en.wikipedia.org/wiki/Forbidden_City#History'},
                                 { title : 'Influence', url : 'https://en.wikipedia.org/wiki/Forbidden_City#Influence'},
-                                { title : 'Photos', url: 'https://www.flickr.com/search/?text=forbbiden%20city'}
+                                { title : 'Photos', url: 'https://www.flickr.com/search/?text=forbidden%20city'}
 
                              ]
                          })
@@ -131,7 +136,7 @@ bot.add('/', function(sess){
     if (/^(hi|hello)/i.test(text)){
         sayHello(sess);
     }
-    else if(/in forbbiden city/i.test(text)){
+    else if(/forbidden city/i.test(text) && /in/i.test(text)){
         overview(sess)
     }
     else if(/introduction/i.test(text)){
