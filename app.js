@@ -6,35 +6,28 @@ var message = require('botbuilder/lib/Message')
 // handlers
 var sayHello = function (sess){
     var msg = new message.Message()
-                         .setText(sess,"Hello Wei, I am Mark,"
-                                  + "an professional *travel guide*"
+                         .setText(sess,"Hello Wei:), I am XiaoBai,"
+                                  + " an professional *travel guide*"
                                   +  " what can I help you?")
     sess.send(msg)
 }
 
 var sayDefault = function(sess){
     var msg = new message.Message()
-                         .setText(sess, "Please Turn on GPS. Let me show you around.")
-    sess.send(msg)
-}
-
-
-var sayDefault = function(sess){
-    var msg = new message.Message()
-                         .setText(sess, "Let me show you around!")
+                         .setText(sess, "Please Turn on GPS. Let me show you around ^o^")
     sess.send(msg)
 }
 
 var answerImgQuery = function(sess){
     var msg = new message.Message()
-                         .setText(sess, "En, it says: \"正大光明\", by English"
+                         .setText(sess, "It says: \"正大光明\", by English"
                                  + " which means: \"Fair and square.\" ")
     sess.send(msg)
 }
 
 var overview = function(sess){
     var msg = new message.Message()
-                         .setText(sess,"Wow, Cool the *Forbidden City*.")
+                         .setText(sess,"Wow, Cool the Forbidden City.")
                          .addAttachment({
                              contentType : 'image/jpeg',
                              contentUrl : 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Forbidden_City_Beijing_Shenwumen_Gate.JPG/1024px-Forbidden_City_Beijing_Shenwumen_Gate.JPG'
@@ -135,7 +128,7 @@ bot.configure({
 bot.add('/', function(sess){
     text = sess.message.text
     console.log(sess.message)
-    if (/^ +(hi|hello)/i.test(text)){
+    if (/^ \+(hi|hello)/i.test(text)){
         sayHello(sess);
     }
     else if(/in Forbidden City/i.test(text)){
